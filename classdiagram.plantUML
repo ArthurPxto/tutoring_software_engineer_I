@@ -1,0 +1,43 @@
+@startuml
+
+ class aluno {
+    + nome 
+    + matricula
+    - senha
+}
+
+ class trilha {
+    + nome
+    - last-recently-used
+ }
+ 
+ class atividade{
+    + numero
+    + stack : enum
+    + enunciado: string
+    -code
+ }
+note "O campo code é onde será armazenado o plantUML do diagrama" as N1
+
+ enum stack {
+    modelagem
+    conceitual
+ }
+
+ class multipla_escolha {
+    -resposta : char
+ }
+
+class dissertativa{
+    -resposta : string
+}
+class word_complete{
+    -restposta[] : Array
+}
+
+ aluno "1" -right- "*" trilha : realiza > 
+ trilha "1" *-- "*" atividade : contem
+ atividade .. N1
+ atividade <|-- dissertativa
+ atividade <|--  multipla_escolha
+ atividade <|-- word_complete

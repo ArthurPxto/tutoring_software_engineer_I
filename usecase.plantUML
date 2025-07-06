@@ -1,0 +1,16 @@
+@startuml
+:Aluno: as aluno
+(trilha de conhecimento) as trilha
+aluno -left-> (cadastro) : realiza
+aluno --> (trilha) : pratica
+(trilha) <.. (atividades) : import
+aluno --> (chat) : consulta duvidas
+(chat) <.. (atividades) : import
+
+newpage
+:Administrador: as admin
+admin --> (atividades) : corrige
+admin --> (cadastro) : realiza
+
+
+@enduml
